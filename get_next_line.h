@@ -13,16 +13,7 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 50
-# endif
-
-# include <stddef.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
 # include <unistd.h>
 
 int		ft_strchr(char *s, int c);

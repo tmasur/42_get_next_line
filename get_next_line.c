@@ -6,7 +6,7 @@
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:04:17 by tmasur            #+#    #+#             */
-/*   Updated: 2022/02/14 17:04:00 by tmasur           ###   ########.fr       */
+/*   Updated: 2022/02/14 17:54:34 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	gnl_buffer = fill_buffer(fd, gnl_buffer);
+	if (!gnl_buffer)
+		return (NULL);
 	line = get_line(gnl_buffer);
 	gnl_buffer = get_new_buffer_ptr(gnl_buffer);
 	return (line);
@@ -81,24 +83,26 @@ char	*get_new_buffer_ptr(char *buffer)
 	int		i;
 	int		j;
 
-	if (!buffer)
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	if (!buffer[i])
 	{
 		free(buffer);
 		return (NULL);
 	}
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
-		i++;
-	j = 0;
-	while (buffer[j])
-		j++;
-	tmp = malloc(j - (i++) + 1);
+	tmp = malloc(ft_strlen(buffer) - i + 1);
 	if (!tmp)
 		return (NULL);
 	j = 0;
+	i++;
 	while (buffer[i])
 		tmp[j++] = buffer[i++];
 	tmp[j] = '\0';
 	free(buffer);
 	return (tmp);
 }
+
+
+
+
