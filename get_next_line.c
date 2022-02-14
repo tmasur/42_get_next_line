@@ -6,7 +6,7 @@
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:04:17 by tmasur            #+#    #+#             */
-/*   Updated: 2022/02/14 17:54:34 by tmasur           ###   ########.fr       */
+/*   Updated: 2022/02/14 22:42:47 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*get_line(char *buffer)
 	char	*tmp;
 	int		i;
 
-	if (!buffer)
+	if (!*buffer)
 		return (NULL);
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
@@ -102,7 +102,3 @@ char	*get_new_buffer_ptr(char *buffer)
 	free(buffer);
 	return (tmp);
 }
-
-
-
-
