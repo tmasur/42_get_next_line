@@ -58,10 +58,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	r = r_tmp;
 	s1_tmp = s1;
 	while (*s1_tmp)
-		*(r_tmp++) = *s1_tmp++;
+		*r_tmp++ = *s1_tmp++;
 	while (*s2)
-		*(r_tmp++) = *s2++;
-	*(r_tmp) = '\0';
+		*r_tmp++ = *s2++;
+	*r_tmp = '\0';
 	free(s1);
 	return (r);
 }
